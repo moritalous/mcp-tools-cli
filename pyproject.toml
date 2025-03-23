@@ -1,6 +1,6 @@
 [project]
 name = "mcp-tools-cli"
-version = "0.1.0"
+version = "0.0.3"
 description = "command-line client for interacting with Model Context Protocol (MCP) servers."
 readme = "README.md"
 requires-python = ">=3.12"
