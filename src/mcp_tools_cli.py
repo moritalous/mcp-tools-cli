@@ -117,32 +117,33 @@ async def process(
         print(f"Error: {e}")
 
 
-parser = argparse.ArgumentParser(
-    description="Connect to an MCP server and list available tools."
-)
-parser.add_argument(
-    "action",
-    choices=["list-tools", "call-tool"],
-    help="Action to perform: list-tools or call-tool",
-)
-parser.add_argument(
-    "--mcp-name",
-    help="The name of the MCP server to connect to (defined in mcp_config.json)",
-    required=True,
-)
-parser.add_argument("--tool-name", help="The name of the tool to call", required=False)
-parser.add_argument(
-    "--tool-args", help="Arguments for the tool (JSON string or a single string)"
-)
-parser.add_argument(
-    "--config-path",
-    help="Path to the mcp_config.json file",
-    default="mcp_config.json",
-)
-args = parser.parse_args()
-
-
 def main():
+    parser = argparse.ArgumentParser(
+        description="Connect to an MCP server and list available tools."
+    )
+    parser.add_argument(
+        "action",
+        choices=["list-tools", "call-tool"],
+        help="Action to perform: list-tools or call-tool",
+    )
+    parser.add_argument(
+        "--mcp-name",
+        help="The name of the MCP server to connect to (defined in mcp_config.json)",
+        required=True,
+    )
+    parser.add_argument(
+        "--tool-name", help="The name of the tool to call", required=False
+    )
+    parser.add_argument(
+        "--tool-args", help="Arguments for the tool (JSON string or a single string)"
+    )
+    parser.add_argument(
+        "--config-path",
+        help="Path to the mcp_config.json file",
+        default="mcp_config.json",
+    )
+    args = parser.parse_args()
+
     asyncio.run(
         process(
             args.mcp_name, args.action, args.tool_name, args.tool_args, args.config_path
@@ -151,4 +152,4 @@ def main():
 
 
 if __name__ == "__main__":
-    main()
+    pass
