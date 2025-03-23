@@ -2,6 +2,32 @@
 
 これは、Model Context Protocol（MCP）サーバーと対話するためのコマンドラインクライアントです。
 
+## インストール
+
+`mcp-tools-cli`はpipを使用してインストールできます。
+
+```
+pip install mcp-tools-cli
+```
+
+## 設定
+
+クライアントは、MCPサーバーの接続詳細を保存するために`mcp_config.json`という名前の設定ファイルを使用します。次の内容で`mcp_config.json`というファイルを作成してください。
+
+```json
+{
+  "mcpServers": {
+    "time": {
+      "command": "python",
+      "args": ["-m", "mcp_server_time", "--local-timezone=America/New_York"]
+    }
+  }
+}
+```
+
+値を自分のMCPサーバー構成に置き換えてください。
+
+
 ## 使い方
 
 ```
