@@ -34,15 +34,13 @@ class MCPClient:
 
         await self.session.initialize()
 
-        print("\nConnected to server.")
-
     async def list_tools(self):
-        response = await self.session.list_tools()
-        return response
+        result = await self.session.list_tools()
+        return result.model_dump_json()
 
     async def call_tool(self, tool_name: str, tool_args: dict):
         result = await self.session.call_tool(tool_name, tool_args)
-        return result
+        return result.model_dump_json()
 
     async def cleanup(self):
         """Clean up resources"""
