@@ -24,5 +24,8 @@ packages = ["src"]
 
 [dependency-groups]
 dev = [
+    "mcp-server-time>=0.6.2",
+    "pytest>=8.3.5",
+    "pytest-asyncio>=0.25.3",
     "ruff>=0.11.2",
 ]
